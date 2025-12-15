@@ -5,69 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alice & Andrea – Il nostro matrimonio</title>
 
-  <!-- Font elegante -->
+  <!-- Font eleganti -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="container">
-
-    <header class="hero">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
       <h1>Alice & Andrea</h1>
-      <p class="subtitle">Il nostro matrimonio</p>
-      <p class="date">💍 Data</p>
-    </header>
+      <p class="hero-subtitle">Il nostro matrimonio</p>
+      <p class="hero-date">Data</p>
+    </div>
+  </section>
 
-    <section class="section">
-      <h2>Con grande gioia</h2>
-      <p>
-        Siamo felici di condividere con voi questo momento speciale della nostra vita.
-        In questa pagina troverete tutte le informazioni utili e il modulo per confermare la vostra presenza. Bla bla bla
-      </p>
-    </section>
+  <!-- INTRO -->
+  <section class="section intro">
+    <h2>Con grande emozione</h2>
+    <p>
+      Siamo felici di condividere con voi uno dei giorni più importanti della nostra vita.
+      In questa pagina troverete tutte le informazioni utili per celebrare insieme a noi questo momento speciale.
+    </p>
+  </section>
 
-    <section class="section">
-      <h2>Informazioni utili</h2>
-      <p><strong>Luogo:</strong>Posto</p>
-      <p><strong>Orario:</strong>Orario</p>
-    </section>
+  <!-- FOTO -->
+  <section class="section photo-section">
+    <div class="photo-frame">
+      <!-- INSERISCI QUI UNA FOTO -->
+      <!-- <img src="foto.jpg" alt="Alice e Andrea"> -->
+      <span>Qui potrà esserci una nostra foto</span>
+    </div>
+  </section>
 
-    <section class="section iban">
-      <h2>Lista nozze</h2>
-      <p>
-        Il regalo più grande sarà avervi con noi.<br>
-        Per chi desiderasse contribuire al nostro viaggio:
-      </p>
+  <!-- INFO EVENTO -->
+  <section class="section info">
+    <h2>Il giorno del matrimonio</h2>
+    <p><strong>📍 Luogo:</strong> Luogo</p>
+    <p><strong>🕰 Orario:</strong>orario</p>
+    <p><strong>👔 Dress code:</strong> Elegante</p>
+  </section>
 
-      <div class="iban-box">
-        <p><strong>IBAN:</strong></p>
-        <p class="iban-code">IT00 X000 0000 0000 0000 000</p>
-        <p><strong>Intestatario:</strong> Alice Bolognini & Andrea Capponi</p>
-        <p><strong>Causale:</strong> Regalo matrimonio</p>
-      </div>
-    </section>
+  <!-- LISTA NOZZE -->
+  <section class="section gift">
+    <h2>Un pensiero per noi</h2>
+    <p>
+      Il regalo più grande sarà avervi al nostro fianco.<br>
+      Per chi desiderasse contribuire al nostro viaggio:
+    </p>
 
-    <section class="section rsvp">
-      <h2>Conferma la tua presenza</h2>
-      <p>
-        Ti chiediamo gentilmente di confermare la tua partecipazione compilando il modulo qui sotto.
-      </p>
+    <div class="iban-box">
+      <p><strong>IBAN</strong></p>
+      <p class="iban">IT00 X000 0000 0000 0000 000</p>
+      <p>Intestatario: Alice Rossi & Andrea Bianchi</p>
+      <p>Causale: Regalo matrimonio</p>
+    </div>
+  </section>
 
-      <!-- QUI METTERAI IL LINK A GOOGLE FORM -->
-      <a class="button" href="INSERISCI_QUI_LINK_GOOGLE_FORM" target="_blank">
-        Compila il modulo
-      </a>
-    </section>
+  <!-- RSVP -->
+  <section class="section rsvp">
+    <h2>Conferma la tua presenza</h2>
+    <p>
+      Ti chiediamo gentilmente di confermare la tua partecipazione compilando il modulo.
+    </p>
 
-    <footer class="footer">
-      <p>Con affetto, Alice & Andrea 💕</p>
-    </footer>
+    <a href="INSERISCI_QUI_LINK_GOOGLE_FORM" target="_blank" class="btn">
+      Conferma presenza
+    </a>
+  </section>
 
-  </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Non vediamo l’ora di festeggiare insieme a voi 🤍</p>
+    <p class="signature">Alice & Andrea</p>
+  </footer>
 
 </body>
 </html>
