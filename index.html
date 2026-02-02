@@ -129,13 +129,15 @@
       
       if (input.value === PASSWORD) {
         // Password corretta - rimuovi overlay e blur
-        body.classList.remove('blur-content');
         overlay.style.opacity = '0';
         
         setTimeout(() => {
+          body.classList.remove('blur-content');
           overlay.style.display = 'none';
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
           window.scrollTo(0, 0);
-        }, 50);
+        }, 100);
       } else {
         // Password sbagliata - mostra errore
         errorMsg.style.display = 'block';
