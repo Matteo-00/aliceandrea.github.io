@@ -129,6 +129,7 @@
       
       if (input.value === PASSWORD) {
         // Password corretta - rimuovi overlay e blur
+        window.scrollTo(0, 0);
         overlay.style.opacity = '0';
         body.classList.remove('blur-content');
         
