@@ -269,7 +269,8 @@ body {
 
 .blur-content {
   overflow: hidden;
-  height: 100vh;
+  position: fixed;
+  width: 100%;
 }
 
 .blur-content > *:not(.password-overlay) {
