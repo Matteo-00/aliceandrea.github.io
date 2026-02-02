@@ -11,7 +11,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="blur-content">
+
+  <!-- PASSWORD OVERLAY -->
+  <div class="password-overlay" id="passwordOverlay">
+    <div class="password-card">
+      <h1 class="password-title">Alice & Andrea</h1>
+      <p class="password-subtitle">Il nostro matrimonio</p>
+      <div class="divider"></div>
+      <p class="password-text">Inserisci la password per accedere</p>
+      <form id="passwordForm">
+        <input 
+          type="password" 
+          id="passwordInput" 
+          class="password-input" 
+          placeholder="Password"
+          autocomplete="off"
+        >
+        <p class="error-message" id="errorMessage">Password non corretta</p>
+        <button type="submit" class="password-btn">Accedi</button>
+      </form>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -95,6 +116,40 @@
     <p>Non vediamo l’ora di festeggiare insieme a voi 🤍</p>
     <p class="signature">Alice & Andrea</p>
   </footer>
+  <script>
+    const PASSWORD = '18luglio2026';
+    const form = document.getElementById('passwordForm');
+    const input = document.getElementById('passwordInput');
+    const errorMsg = document.getElementById('errorMessage');
+    const overlay = document.getElementById('passwordOverlay');
+    const body = document.body;
 
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      if (input.value === PASSWORD) {
+        // Password corretta - rimuovi overlay e blur
+        overlay.style.opacity = '0';
+        body.classList.remove('blur-content');
+        
+        setTimeout(() => {
+          overlay.style.display = 'none';
+        }, 500);
+      } else {
+        // Password sbagliata - mostra errore
+        errorMsg.style.display = 'block';
+        input.value = '';
+        input.classList.add('shake');
+        
+        setTimeout(() => {
+          input.classList.remove('shake');
+          errorMsg.style.display = 'none';
+        }, 2000);
+      }
+    });
+
+    // Focus automatico sull'input
+    input.focus();
+  </script>
 </body>
 </html>
