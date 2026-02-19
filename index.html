@@ -106,9 +106,9 @@
       Ti chiediamo gentilmente di confermare la tua partecipazione compilando il modulo.
     </p>
 
-    <a href="INSERISCI_QUI_LINK_GOOGLE_FORM" target="_blank" class="btn">
+    <button id="openRsvpModal" class="btn">
       Conferma presenza
-    </a>
+    </button>
   </section>
 
   <!-- FOOTER -->
@@ -116,8 +116,99 @@
     <p>Non vediamo l’ora di festeggiare insieme a voi 🤍</p>
     <p class="signature">Alice & Andrea</p>
   </footer>
-  <script>
+  <!-- MODAL CONFERMA PRESENZA -->
+  <div class="rsvp-modal-overlay" id="rsvpModalOverlay">
+    <div class="rsvp-modal">
+      <button class="rsvp-modal-close" id="closeRsvpModal">&times;</button>
+      
+      <h2 class="rsvp-modal-title">Conferma la tua presenza</h2>
+      <div class="divider"></div>
+      
+      <form id="rsvpForm" class="rsvp-form">
+        <!-- Dati personali -->
+        <div class="form-section">
+          <h3 class="form-section-title">Dati personali</h3>
+          
+          <div class="form-group">
+            <label for="nome">Nome *</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="cognome">Cognome *</label>
+            <input type="text" id="cognome" name="cognome" required>
+          </div>
+        </div>
+
+        <!-- Presenza -->
+        <div class="form-section">
+          <h3 class="form-section-title">Presenza</h3>
+          
+          <div class="form-group radio-group">
+            <label class="radio-label">
+              <input type="radio" name="presenza" value="true" required>
+              <span>Accetto con piacere</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="presenza" value="false">
+              <span>Sfortunatamente non potrò esserci</span>
+            </label>
+          </div>
+
+          <!-- Campi condizionali per presenza = true -->
+          <div id="presenzaSiFields" class="conditional-fields" style="display: none;">
+            <div class="form-group">
+              <label for="numero_partecipanti">Numero partecipanti *</label>
+              <input type="number" id="numero_partecipanti" name="numero_partecipanti" min="1" value="1">
+            </div>
+            
+            <div class="form-group">
+              <label for="descrizione_numero_partecipanti">Note sul numero di partecipanti (opzionale)</label>
+              <textarea id="descrizione_numero_partecipanti" name="descrizione_numero_partecipanti" rows="2" placeholder="Accetto con piacere"></textarea>
+            </div>
+          </div>
+
+          <!-- Campi condizionali per presenza = false -->
+          <div id="presenzaNoFields" class="conditional-fields" style="display: none;">
+            <div class="form-group">
+              <label for="descrizione_presenza">Messaggio per gli sposi (opzionale)</label>
+              <textarea id="descrizione_presenza" name="descrizione_presenza" rows="3" placeholder="Ci dispiace non poter essere presenti..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Allergie / Intolleranze -->
+        <div class="form-section" id="allergieSection" style="display: none;">
+          <h3 class="form-section-title">Allergie / Intolleranze</h3>
+          
+          <div class="form-group radio-group">
+            <label class="radio-label">
+              <input type="radio" name="allergeni_intolleranze" value="true">
+              <span>Sì</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="allergeni_intolleranze" value="false" checked>
+              <span>No</span>
+            </label>
+          </div>
+
+          <!-- Campi condizionali per allergie = true -->
+          <div id="allergieFields" class="conditional-fields" style="display: none;">
+            <div class="form-group">
+              <label for="descrizione_allergeni_intolleranze">Descrivi le tue allergie o intolleranze *</label>
+              <textarea id="descrizione_allergeni_intolleranze" name="descrizione_allergeni_intolleranze" rows="3" placeholder="Es: Intollerante al lattosio, allergico ai frutti di mare..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-message" id="formMessage"></div>
+
+        <button type="submit" class="rsvp-submit-btn">Invia conferma</button>
+      </form>
+    </div>
+  </div>  <script>
     const PASSWORD = '18luglio2026';
+    const PASSWORD_ADMIN = '18luglio2026Conferme!';
     const form = document.getElementById('passwordForm');
     const input = document.getElementById('passwordInput');
     const errorMsg = document.getElementById('errorMessage');
@@ -127,7 +218,10 @@
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      if (input.value === PASSWORD) {
+      if (input.value === PASSWORD_ADMIN) {
+        // Password admin - redirect a pagina conferme
+        window.location.href = 'conferme.html';
+      } else if (input.value === PASSWORD) {
         // Password corretta - rimuovi overlay e blur
         overlay.style.opacity = '0';
         
@@ -153,6 +247,157 @@
 
     // Focus automatico sull'input
     input.focus();
+
+    // ===== MODAL RSVP =====
+    const openRsvpBtn = document.getElementById('openRsvpModal');
+    const closeRsvpBtn = document.getElementById('closeRsvpModal');
+    const rsvpModalOverlay = document.getElementById('rsvpModalOverlay');
+    const rsvpForm = document.getElementById('rsvpForm');
+    const formMessage = document.getElementById('formMessage');
+
+    const presenzaRadios = document.querySelectorAll('input[name="presenza"]');
+    const presenzaSiFields = document.getElementById('presenzaSiFields');
+    const presenzaNoFields = document.getElementById('presenzaNoFields');
+    const allergieSection = document.getElementById('allergieSection');
+    const allergieRadios = document.querySelectorAll('input[name="allergeni_intolleranze"]');
+    const allergieFields = document.getElementById('allergieFields');
+
+    // Apri modal
+    openRsvpBtn.addEventListener('click', function() {
+      rsvpModalOverlay.style.display = 'flex';
+      setTimeout(() => {
+        rsvpModalOverlay.classList.add('active');
+      }, 10);
+    });
+
+    // Chiudi modal
+    function closeModal() {
+      rsvpModalOverlay.classList.remove('active');
+      setTimeout(() => {
+        rsvpModalOverlay.style.display = 'none';
+      }, 300);
+    }
+
+    closeRsvpBtn.addEventListener('click', closeModal);
+    
+    rsvpModalOverlay.addEventListener('click', function(e) {
+      if (e.target === rsvpModalOverlay) {
+        closeModal();
+      }
+    });
+
+    // Gestione logica condizionale presenza
+    presenzaRadios.forEach(radio => {
+      radio.addEventListener('change', function() {
+        const presenza = this.value === 'true';
+        
+        if (presenza) {
+          presenzaSiFields.style.display = 'block';
+          presenzaNoFields.style.display = 'none';
+          allergieSection.style.display = 'block';
+          // Rendi numero_partecipanti required
+          document.getElementById('numero_partecipanti').required = true;
+          document.getElementById('descrizione_presenza').required = false;
+        } else {
+          presenzaSiFields.style.display = 'none';
+          presenzaNoFields.style.display = 'block';
+          allergieSection.style.display = 'none';
+          // Rimuovi required da numero_partecipanti
+          document.getElementById('numero_partecipanti').required = false;
+          document.getElementById('descrizione_presenza').required = false;
+        }
+      });
+    });
+
+    // Gestione logica condizionale allergie
+    allergieRadios.forEach(radio => {
+      radio.addEventListener('change', function() {
+        const hasAllergie = this.value === 'true';
+        
+        if (hasAllergie) {
+          allergieFields.style.display = 'block';
+          document.getElementById('descrizione_allergeni_intolleranze').required = true;
+        } else {
+          allergieFields.style.display = 'none';
+          document.getElementById('descrizione_allergeni_intolleranze').required = false;
+        }
+      });
+    });
+
+    // Submit form
+    rsvpForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Raccogli dati dal form
+      const formData = {
+        nome: document.getElementById('nome').value,
+        cognome: document.getElementById('cognome').value,
+        presenza: document.querySelector('input[name="presenza"]:checked').value === 'true',
+        descrizione_presenza: document.getElementById('descrizione_presenza').value || null,
+        numero_partecipanti: null,
+        descrizione_numero_partecipanti: null,
+        allergeni_intolleranze: false,
+        descrizione_allergeni_intolleranze: null
+      };
+
+      // Se partecipa, aggiungi dati partecipanti e allergie
+      if (formData.presenza) {
+        formData.numero_partecipanti = parseInt(document.getElementById('numero_partecipanti').value);
+        formData.descrizione_numero_partecipanti = document.getElementById('descrizione_numero_partecipanti').value || null;
+        
+        const allergieChecked = document.querySelector('input[name="allergeni_intolleranze"]:checked');
+        if (allergieChecked) {
+          formData.allergeni_intolleranze = allergieChecked.value === 'true';
+          if (formData.allergeni_intolleranze) {
+            formData.descrizione_allergeni_intolleranze = document.getElementById('descrizione_allergeni_intolleranze').value || null;
+          }
+        }
+      }
+
+      // Mostra messaggio di caricamento
+      formMessage.innerHTML = '<p style="color: #7a5c58;">Invio in corso...</p>';
+      formMessage.style.display = 'block';
+
+      // Invia a Supabase
+      const SUPABASE_URL = 'https://wdinlazhjttgrkxdzyoa.supabase.co';
+      const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndkaW5sYXpoanR0Z3JreGR6eW9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1MTEwNTgsImV4cCI6MjA4NzA4NzA1OH0.C9AIZLk_mYVxGh4Po0OPyr_RcQtkplytCjyRLRB-IM4';
+      
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/adesioni_matrimonio`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_KEY,
+            'Authorization': `Bearer ${SUPABASE_KEY}`,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify(formData)
+        });
+        
+        if (response.ok) {
+          formMessage.innerHTML = '<p style="color: #5cb85c;">Conferma inviata con successo! Grazie</p>';
+          
+          // Reset form e chiudi dopo 2 secondi
+          setTimeout(() => {
+            rsvpForm.reset();
+            formMessage.style.display = 'none';
+            closeModal();
+            // Reset campi condizionali
+            presenzaSiFields.style.display = 'none';
+            presenzaNoFields.style.display = 'none';
+            allergieSection.style.display = 'none';
+            allergieFields.style.display = 'none';
+          }, 2000);
+        } else {
+          const errorData = await response.json();
+          console.error('Errore risposta:', errorData);
+          throw new Error('Errore nell\'invio della conferma');
+        }
+      } catch (error) {
+        formMessage.innerHTML = '<p style="color: #d9534f;">Errore nell\'invio. Riprova.</p>';
+        console.error('Errore:', error);
+      }
+    });
   </script>
 </body>
 </html>
