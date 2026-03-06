@@ -16,7 +16,7 @@ body {
 /* HERO */
 .hero {
   height: 100vh;
-  background: url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e') center/cover no-repeat;
+  background: url('Sfondo.jpg') center/cover no-repeat;
   position: relative;
   display: flex;
   align-items: center;
@@ -26,13 +26,21 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 248, 244, 0.75);
+  background: rgba(255, 248, 244, 0.85);
 }
 
 .hero-content {
   position: relative;
   text-align: center;
   padding: 20px;
+}
+
+.hero-logo {
+  max-width: 300px;
+  width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
 }
 
 .hero h1 {
@@ -162,6 +170,33 @@ body {
   color: #7a5c58;
 }
 
+.footer-logo {
+  display: block;
+  margin: 30px auto;
+  max-width: 80px;
+  height: auto;
+}
+
+.footer-separator {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+}
+
+.footer-separator img {
+  height: 120px;
+  width: auto;
+  margin-left: -40px;
+  display: block;
+}
+
+.footer-separator img:first-child {
+  margin-left: 0;
+}
+
 .signature {
   margin-top: 10px;
   font-family: 'Playfair Display', serif;
@@ -198,6 +233,12 @@ body {
   font-size: 3rem;
   color: #7a5c58;
   margin-bottom: 8px;
+}
+
+.password-title-img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 .password-subtitle {

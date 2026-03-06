@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alice & Andrea – Il nostro matrimonio</title>
 
   <!-- Font eleganti -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -16,18 +19,11 @@
   <!-- PASSWORD OVERLAY -->
   <div class="password-overlay" id="passwordOverlay">
     <div class="password-card">
-      <h1 class="password-title">Alice & Andrea</h1>
-      <p class="password-subtitle">Il nostro matrimonio</p>
+      <img src="nomi.png" alt="Alice e Andrea" class="password-title-img">
       <div class="divider"></div>
       <p class="password-text">Inserisci la password per accedere</p>
       <form id="passwordForm">
-        <input 
-          type="password" 
-          id="passwordInput" 
-          class="password-input" 
-          placeholder="Password"
-          autocomplete="off"
-        >
+        <input type="password" id="passwordInput" class="password-input" placeholder="Password" autocomplete="off">
         <p class="error-message" id="errorMessage">Password non corretta</p>
         <button type="submit" class="password-btn">Accedi</button>
       </form>
@@ -38,9 +34,9 @@
   <section class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
-      <h1>Alice & Andrea</h1>
+      <img src="logo.png" alt="Alice & Andrea" class="hero-logo">
       <p class="hero-subtitle">Il nostro matrimonio</p>
-      <p class="hero-date">Data</p>
+      <p class="hero-date">18 Luglio 2026</p>
     </div>
   </section>
 
@@ -48,8 +44,8 @@
   <section class="section intro">
     <h2>Con grande emozione</h2>
     <p>
-      Siamo felici di condividere con voi uno dei giorni più importanti della nostra vita.
-      In questa pagina troverete tutte le informazioni utili per celebrare insieme a noi questo momento speciale.
+      Siamo felici di condividere con voi uno dei giorni più importanti della nostra vita
+      In questa pagina troverete tutte le informazioni utili per celebrare insieme a noi questo momento speciale
     </p>
   </section>
 
@@ -64,46 +60,44 @@
 
   <!-- INFO EVENTO -->
   <section class="section event-details">
-  <h2>Il nostro giorno speciale</h2>
+    <h2>Il nostro giorno speciale</h2>
 
-  <div class="details-grid">
-    <div class="detail-card">
-      <span class="icon">📍</span>
-      <h3>Luogo</h3>
-      <p>Villa dei Sogni<br>Posto</p>
+    <div class="details-grid">
+      <div class="detail-card">
+        <h3>Luogo</h3>
+        <p>Villa dei Sogni<br>Posto</p>
+      </div>
+
+      <div class="detail-card">
+        <h3>Orario</h3>
+        <p>Sabato<br>Orario</p>
+      </div>
+
     </div>
-
-    <div class="detail-card">
-      <span class="icon">🕰</span>
-      <h3>Orario</h3>
-      <p>Sabato<br>Orario</p>
-    </div>
-
-  </div>
-</section>
+  </section>
 
 
   <!-- LISTA NOZZE -->
   <section class="section gift">
     <h2>Un pensiero per noi</h2>
     <p>
-      Il regalo più grande sarà avervi al nostro fianco.<br>
-      Per chi desiderasse contribuire al nostro viaggio:
+      Il regalo più grande sarà avervi al nostro fianco<br>
+      Per chi desiderasse contribuire al nostro viaggio
     </p>
 
     <div class="iban-box">
       <p><strong>IBAN</strong></p>
-      <p class="iban">IT00 X000 0000 0000 0000 000</p>
-      <p>Intestatario: Alice Bolognini & Andrea Capponi</p>
+      <p class="iban">IT75D0538738480000004682509</p>
+      <p>Intestatario: Alice Bolognini e Andrea Capponi</p>
       <p>Causale: Regalo matrimonio</p>
     </div>
   </section>
 
   <!-- RSVP -->
   <section class="section rsvp">
-    <h2>Conferma la tua presenza</h2>
+    <h2>È gradita gentile conferma</h2>
     <p>
-      Ti chiediamo gentilmente di confermare la tua partecipazione compilando il modulo.
+      Ti chiediamo gentilmente di confermare la tua partecipazione compilando il modulo
     </p>
 
     <button id="openRsvpModal" class="btn">
@@ -113,27 +107,37 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p>Non vediamo l’ora di festeggiare insieme a voi 🤍</p>
-    <p class="signature">Alice & Andrea</p>
+    <p>Non vediamo l'ora di festeggiare insieme a voi</p>
+    <div class="footer-separator">
+      <img src="fiorilunghi.png" alt="">
+      <img src="fiorilunghi.png" alt="">
+      <img src="fiorilunghi.png" alt="">
+      <img src="fiorilunghi.png" alt="">
+      <img src="fiorilunghi.png" alt="">
+      <img src="fiorilunghi.png" alt="">
+      <img src="fiorilunghi.png" alt="">
+      <img src="fiorilunghi.png" alt="">
+      <img src="fiorilunghi.png" alt="">
+    </div>
   </footer>
   <!-- MODAL CONFERMA PRESENZA -->
   <div class="rsvp-modal-overlay" id="rsvpModalOverlay">
     <div class="rsvp-modal">
       <button class="rsvp-modal-close" id="closeRsvpModal">&times;</button>
-      
-      <h2 class="rsvp-modal-title">Conferma la tua presenza</h2>
+
+      <h2 class="rsvp-modal-title">È gradita gentile conferma</h2>
       <div class="divider"></div>
-      
+
       <form id="rsvpForm" class="rsvp-form">
         <!-- Dati personali -->
         <div class="form-section">
           <h3 class="form-section-title">Dati personali</h3>
-          
+
           <div class="form-group">
             <label for="nome">Nome *</label>
             <input type="text" id="nome" name="nome" required>
           </div>
-          
+
           <div class="form-group">
             <label for="cognome">Cognome *</label>
             <input type="text" id="cognome" name="cognome" required>
@@ -143,7 +147,7 @@
         <!-- Presenza -->
         <div class="form-section">
           <h3 class="form-section-title">Presenza</h3>
-          
+
           <div class="form-group radio-group">
             <label class="radio-label">
               <input type="radio" name="presenza" value="true" required>
@@ -161,10 +165,11 @@
               <label for="numero_partecipanti">Numero partecipanti *</label>
               <input type="number" id="numero_partecipanti" name="numero_partecipanti" min="1" value="1">
             </div>
-            
+
             <div class="form-group">
               <label for="descrizione_numero_partecipanti">Note sul numero di partecipanti (opzionale)</label>
-              <textarea id="descrizione_numero_partecipanti" name="descrizione_numero_partecipanti" rows="2" placeholder="Accetto con piacere"></textarea>
+              <textarea id="descrizione_numero_partecipanti" name="descrizione_numero_partecipanti" rows="2"
+                placeholder="Accetto con piacere"></textarea>
             </div>
           </div>
 
@@ -172,7 +177,8 @@
           <div id="presenzaNoFields" class="conditional-fields" style="display: none;">
             <div class="form-group">
               <label for="descrizione_presenza">Messaggio per gli sposi (opzionale)</label>
-              <textarea id="descrizione_presenza" name="descrizione_presenza" rows="3" placeholder="Ci dispiace non poter essere presenti..."></textarea>
+              <textarea id="descrizione_presenza" name="descrizione_presenza" rows="3"
+                placeholder="Ci dispiace non poter essere presenti..."></textarea>
             </div>
           </div>
         </div>
@@ -180,7 +186,7 @@
         <!-- Allergie / Intolleranze -->
         <div class="form-section" id="allergieSection" style="display: none;">
           <h3 class="form-section-title">Allergie / Intolleranze</h3>
-          
+
           <div class="form-group radio-group">
             <label class="radio-label">
               <input type="radio" name="allergeni_intolleranze" value="true">
@@ -196,7 +202,8 @@
           <div id="allergieFields" class="conditional-fields" style="display: none;">
             <div class="form-group">
               <label for="descrizione_allergeni_intolleranze">Descrivi le tue allergie o intolleranze *</label>
-              <textarea id="descrizione_allergeni_intolleranze" name="descrizione_allergeni_intolleranze" rows="3" placeholder="Es: Intollerante al lattosio, allergico ai frutti di mare..."></textarea>
+              <textarea id="descrizione_allergeni_intolleranze" name="descrizione_allergeni_intolleranze" rows="3"
+                placeholder="Es: Intollerante al lattosio, allergico ai frutti di mare..."></textarea>
             </div>
           </div>
         </div>
@@ -206,7 +213,8 @@
         <button type="submit" class="rsvp-submit-btn">Invia conferma</button>
       </form>
     </div>
-  </div>  <script>
+  </div>
+  <script>
     const PASSWORD = '18luglio2026';
     const PASSWORD_ADMIN = '18luglio2026Conferme!';
     const form = document.getElementById('passwordForm');
@@ -215,16 +223,16 @@
     const overlay = document.getElementById('passwordOverlay');
     const body = document.body;
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      
+
       if (input.value === PASSWORD_ADMIN) {
         // Password admin - redirect a pagina conferme
         window.location.href = 'conferme.html';
       } else if (input.value === PASSWORD) {
         // Password corretta - rimuovi overlay e blur
         overlay.style.opacity = '0';
-        
+
         setTimeout(() => {
           body.classList.remove('blur-content');
           overlay.style.display = 'none';
@@ -237,7 +245,7 @@
         errorMsg.style.display = 'block';
         input.value = '';
         input.classList.add('shake');
-        
+
         setTimeout(() => {
           input.classList.remove('shake');
           errorMsg.style.display = 'none';
@@ -263,7 +271,7 @@
     const allergieFields = document.getElementById('allergieFields');
 
     // Apri modal
-    openRsvpBtn.addEventListener('click', function() {
+    openRsvpBtn.addEventListener('click', function () {
       rsvpModalOverlay.style.display = 'flex';
       setTimeout(() => {
         rsvpModalOverlay.classList.add('active');
@@ -279,8 +287,8 @@
     }
 
     closeRsvpBtn.addEventListener('click', closeModal);
-    
-    rsvpModalOverlay.addEventListener('click', function(e) {
+
+    rsvpModalOverlay.addEventListener('click', function (e) {
       if (e.target === rsvpModalOverlay) {
         closeModal();
       }
@@ -288,9 +296,9 @@
 
     // Gestione logica condizionale presenza
     presenzaRadios.forEach(radio => {
-      radio.addEventListener('change', function() {
+      radio.addEventListener('change', function () {
         const presenza = this.value === 'true';
-        
+
         if (presenza) {
           presenzaSiFields.style.display = 'block';
           presenzaNoFields.style.display = 'none';
@@ -311,9 +319,9 @@
 
     // Gestione logica condizionale allergie
     allergieRadios.forEach(radio => {
-      radio.addEventListener('change', function() {
+      radio.addEventListener('change', function () {
         const hasAllergie = this.value === 'true';
-        
+
         if (hasAllergie) {
           allergieFields.style.display = 'block';
           document.getElementById('descrizione_allergeni_intolleranze').required = true;
@@ -325,9 +333,9 @@
     });
 
     // Submit form
-    rsvpForm.addEventListener('submit', async function(e) {
+    rsvpForm.addEventListener('submit', async function (e) {
       e.preventDefault();
-      
+
       // Raccogli dati dal form
       const formData = {
         nome: document.getElementById('nome').value,
@@ -344,7 +352,7 @@
       if (formData.presenza) {
         formData.numero_partecipanti = parseInt(document.getElementById('numero_partecipanti').value);
         formData.descrizione_numero_partecipanti = document.getElementById('descrizione_numero_partecipanti').value || null;
-        
+
         const allergieChecked = document.querySelector('input[name="allergeni_intolleranze"]:checked');
         if (allergieChecked) {
           formData.allergeni_intolleranze = allergieChecked.value === 'true';
@@ -361,7 +369,7 @@
       // Invia a Supabase
       const SUPABASE_URL = 'https://wdinlazhjttgrkxdzyoa.supabase.co';
       const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndkaW5sYXpoanR0Z3JreGR6eW9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1MTEwNTgsImV4cCI6MjA4NzA4NzA1OH0.C9AIZLk_mYVxGh4Po0OPyr_RcQtkplytCjyRLRB-IM4';
-      
+
       try {
         const response = await fetch(`${SUPABASE_URL}/rest/v1/adesioni_matrimonio`, {
           method: 'POST',
@@ -373,10 +381,10 @@
           },
           body: JSON.stringify(formData)
         });
-        
+
         if (response.ok) {
           formMessage.innerHTML = '<p style="color: #5cb85c;">Conferma inviata con successo! Grazie</p>';
-          
+
           // Reset form e chiudi dopo 2 secondi
           setTimeout(() => {
             rsvpForm.reset();
@@ -400,4 +408,5 @@
     });
   </script>
 </body>
+
 </html>
