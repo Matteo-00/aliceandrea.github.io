@@ -44,7 +44,7 @@
   <section class="section intro">
     <h2>Con grande emozione</h2>
     <p>
-      Siamo felici di condividere con voi uno dei giorni più importanti della nostra vita
+      Siamo felici di condividere con voi uno dei giorni più importanti della nostra vita<br>
       In questa pagina troverete tutte le informazioni utili per celebrare insieme a noi questo momento speciale
     </p>
   </section>
@@ -52,9 +52,11 @@
   <!-- FOTO -->
   <section class="section photo-section">
     <div class="photo-frame">
-      <!-- INSERISCI QUI UNA FOTO -->
-      <!-- <img src="foto.jpg" alt="Alice e Andrea"> -->
-      <span>Bacino ali andri foto</span>
+      <img src="assets/1.jpg" alt="Alice e Andrea" class="carousel-image active">
+      <img src="assets/2.jpg" alt="Alice e Andrea" class="carousel-image">
+      <img src="assets/3.jpg" alt="Alice e Andrea" class="carousel-image">
+      <img src="assets/4.jpg" alt="Alice e Andrea" class="carousel-image">
+      <img src="assets/5.jpg" alt="Alice e Andrea" class="carousel-image">
     </div>
   </section>
 
@@ -65,12 +67,14 @@
     <div class="details-grid">
       <div class="detail-card">
         <h3>Luogo</h3>
-        <p>Villa dei Sogni<br>Posto</p>
+        <p><strong>CHIESA DI SAN DOMENICO</strong><br>Piazza Giordano Bruno, Gubbio</p>
+        <br>
+        <p><strong>ANTICA VILLA CASTELLI</strong><br>Loc. Monteluiano 50, Gubbio</p>
       </div>
 
       <div class="detail-card">
-        <h3>Orario</h3>
-        <p>Sabato<br>Orario</p>
+        <h3>Data</h3>
+        <p><strong>SABATO 18 LUGLIO 2026</strong><br>Ore 16:30</p>
       </div>
 
     </div>
@@ -255,6 +259,19 @@
 
     // Focus automatico sull'input
     input.focus();
+
+    // ===== CAROUSEL FOTO =====
+    const carouselImages = document.querySelectorAll('.carousel-image');
+    let currentIndex = 0;
+
+    function showNextImage() {
+      carouselImages[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % carouselImages.length;
+      carouselImages[currentIndex].classList.add('active');
+    }
+
+    // Cambia immagine ogni 3.5 secondi
+    setInterval(showNextImage, 3500);
 
     // ===== MODAL RSVP =====
     const openRsvpBtn = document.getElementById('openRsvpModal');
