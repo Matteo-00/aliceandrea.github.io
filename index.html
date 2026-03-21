@@ -66,15 +66,15 @@
 
     <div class="details-grid">
       <div class="detail-card">
+        <h3>Data</h3>
+        <p><strong>SABATO 18 LUGLIO 2026</strong><br>Ore 16:30</p>
+      </div>
+
+      <div class="detail-card">
         <h3>Luogo</h3>
         <p><strong>CHIESA DI SAN DOMENICO</strong><br>Piazza Giordano Bruno, Gubbio</p>
         <br>
         <p><strong>ANTICA VILLA CASTELLI</strong><br>Loc. Monteluiano 50, Gubbio</p>
-      </div>
-
-      <div class="detail-card">
-        <h3>Data</h3>
-        <p><strong>SABATO 18 LUGLIO 2026</strong><br>Ore 16:30</p>
       </div>
 
     </div>
@@ -85,8 +85,7 @@
   <section class="section gift">
     <h2>Un pensiero per noi</h2>
     <p>
-      Il regalo più grande sarà avervi al nostro fianco<br>
-      Per chi desiderasse contribuire al nostro viaggio
+      Il regalo più grande sarà avervi al nostro fianco, ma se desiderate farci un regalo potete contribuire al nostro viaggio di nozze
     </p>
 
     <div class="iban-box">
@@ -112,18 +111,12 @@
   <!-- FOOTER -->
   <footer class="footer">
     <p>Non vediamo l'ora di festeggiare insieme a voi</p>
-    <div class="footer-separator">
-      <img src="fiorilunghi.png" alt="">
-      <img src="fiorilunghi.png" alt="">
-      <img src="fiorilunghi.png" alt="">
-      <img src="fiorilunghi.png" alt="">
-      <img src="fiorilunghi.png" alt="">
-      <img src="fiorilunghi.png" alt="">
-      <img src="fiorilunghi.png" alt="">
-      <img src="fiorilunghi.png" alt="">
-      <img src="fiorilunghi.png" alt="">
-    </div>
   </footer>
+  
+  <!-- FIORI FONDO PAGINA -->
+  <div class="flowers-bottom">
+    <img src="fiorilunghi.png" alt="" style="width: 100%; display: block;">
+  </div>
   <!-- MODAL CONFERMA PRESENZA -->
   <div class="rsvp-modal-overlay" id="rsvpModalOverlay">
     <div class="rsvp-modal">
@@ -173,7 +166,7 @@
             <div class="form-group">
               <label for="descrizione_numero_partecipanti">Note sul numero di partecipanti (opzionale)</label>
               <textarea id="descrizione_numero_partecipanti" name="descrizione_numero_partecipanti" rows="2"
-                placeholder="Accetto con piacere"></textarea>
+                placeholder=""></textarea>
             </div>
           </div>
 
@@ -189,7 +182,7 @@
 
         <!-- Allergie / Intolleranze -->
         <div class="form-section" id="allergieSection" style="display: none;">
-          <h3 class="form-section-title">Allergie / Intolleranze</h3>
+          <h3 class="form-section-title">Allergie/ intolleranze / menu speciali</h3>
 
           <div class="form-group radio-group">
             <label class="radio-label">
@@ -205,9 +198,9 @@
           <!-- Campi condizionali per allergie = true -->
           <div id="allergieFields" class="conditional-fields" style="display: none;">
             <div class="form-group">
-              <label for="descrizione_allergeni_intolleranze">Descrivi le tue allergie o intolleranze *</label>
+              <label for="descrizione_allergeni_intolleranze">Descrivi le tue allergie o intolleranze o descrivi menu speciali *</label>
               <textarea id="descrizione_allergeni_intolleranze" name="descrizione_allergeni_intolleranze" rows="3"
-                placeholder="Es: Intollerante al lattosio, allergico ai frutti di mare..."></textarea>
+                placeholder="es. celiaco, menu vegetariano…"></textarea>
             </div>
           </div>
         </div>
