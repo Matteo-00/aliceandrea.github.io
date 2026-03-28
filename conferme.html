@@ -162,7 +162,8 @@
     // Carica dati da Supabase
     async function loadData() {
       try {
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/adesioni_matrimonio?select=*`, {
+        // Filtra per idmatrimonio = '001'
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/adesioni_matrimonio?select=*&idmatrimonio=eq.001`, {
           method: 'GET',
           headers: {
             'apikey': SUPABASE_KEY,
